@@ -22,7 +22,8 @@ function handleDrop(event) {
     element.ondragstart = handleDragStart;
     element.onclick = function () {
         modal.style.display = "block";
-        var clickedElem = document.getElementById(count - 1);
+        var clickedElem = document.getElementById(this.id);
+        console.log();
         document.getElementById("textarea-box").value = clickedElem.innerHTML;
 
     }
