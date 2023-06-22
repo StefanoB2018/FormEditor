@@ -32,7 +32,9 @@ textarea {
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px #999;
 }
-[class="btn btn-dark"],[class="btn btn-light"]{
+
+[class="btn btn-dark"],
+[class="btn btn-light"] {
     width: min-content;
     margin-top: 5px;
     margin-right: 5px;
@@ -190,4 +192,13 @@ svg:hover {
     border: 1px solid #888;
     width: 80%;
     overflow-y: auto;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    color: gray;
 }

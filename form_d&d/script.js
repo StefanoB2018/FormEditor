@@ -2,6 +2,7 @@
 let count = 0;
 var dragElement = null;
 let selectedElement = 0;
+let inputLength = 20;
 
 //drag & drop
 function handleDragStart(event) {
@@ -254,7 +255,7 @@ function editHasAttribute(string) {
                 console.log(element);
                 break;
             default:
-                element.setAttribute(string, "10")
+                element.setAttribute(string, inputLength);
                 break;
         }
     }
