@@ -155,18 +155,22 @@
 
                 </div>
 
-                <!-- Modal -->
+                <!-- Modal textarea-->
                 <div id="elements-modal" class="modal">
 
                     <!-- Modal content -->
                     <div class="modal-content">
                         <h5>Edit</h5>
+
                         <textarea id="textarea-box"></textarea>
-                    
-                        <div class="btn btn-light" onclick="modify()">Modify</div>
-                        <div class="btn btn-light" name="required" onclick="editHasAttribute(this)">Required(input)</div>
-                        <div class="btn btn-light" onclick="editHasAttribute('maxlength')">Maxlength(input)</div>
-                        <div class="btn btn-light" onclick="editHasAttribute('minlength')">Minlength(input)</div>
+                        <div class="btn btn-dark" onclick="modify()">Modify</div>
+
+                        <div>
+                            <div class="btn btn-light" onclick="editHasAttribute('required')">Required(input)</div>
+                            <div class="btn btn-light" onclick="editHasAttribute('maxlength')">Maxlength(input)</div>
+                            <div class="btn btn-light" onclick="editHasAttribute('minlength')">Minlength(input)</div>
+                        </div>
+                        <div id="temp" style="display: none;"></div>
                     </div>
 
                 </div>
@@ -284,6 +288,7 @@
         </div>
     </div>
     <script src="script.js" defer></script>
+
 </body>
 
 </html>

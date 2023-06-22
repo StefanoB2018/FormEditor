@@ -32,6 +32,11 @@ textarea {
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px #999;
 }
+[class="btn btn-dark"],[class="btn btn-light"]{
+    width: min-content;
+    margin-top: 5px;
+    margin-right: 5px;
+}
 
 #bottombtn {
     position: fixed;

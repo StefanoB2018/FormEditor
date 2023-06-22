@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="elements-modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <h5>Edit</h5>
+
+            <textarea id="textarea-box"></textarea>
+
+            <div>
+                <div class="btn btn-light" onclick="editHasAttribute('required')">Required(input)
+                </div>
+                <div class="btn btn-light" onclick="editHasAttribute('maxlength')">Maxlength(input)</div>
+                <div class="btn btn-light" onclick="editHasAttribute('minlength')">Minlength(input)</div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div id="1">
+            <input name="daily" value="Next" title="Next" class="btn btn-link" type="submit" required />
+
+            <input type="submit" name="daily" value="Next" title="Next" class="btn btn-link" />
+        </div>
+        <br>
+        <br>
+
+        <input>A
+        <input>
+        <div>
+            a
+        </div>
+        </input>
+        <p>Foobar</p>
+        <input>C</input>
+        <br>
+        <br>
+        <div id="2"></div>
+
+        <div id="3" style="display: none;"></div>
+
+    </div>
+    <script>
+        var clickedElem = document.getElementById(1);
+        document.getElementById("textarea-box").value = clickedElem.innerHTML;
+
+        function editHasAttribute(string) {
+            var html = document.getElementById("textarea-box").value;
+            var div = document.createElement("div"), nodes;
+            div.innerHTML = html;
+            document.getElementById("3").appendChild(div);
+            var sortedDiv = div.querySelectorAll('input:not(['+string+'])');
+            console.log(flag);
+            if (flag) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

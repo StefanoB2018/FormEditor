@@ -1,7 +1,9 @@
-
+//contatore elementi
 let count = 0;
 var dragElement = null;
 
+
+//drag & drop
 function handleDragStart(event) {
     dragElement = event.target;
     event.dataTransfer.setData("text/plain", ""); // Necessario per Firefox
@@ -28,13 +30,11 @@ function handleDrop(event) {
     count++;
 }
 
-// Get the modal
+// modale
 var modal = document.getElementById('elements-modal');
-
-// Get the button that opens the modal
 var btn = document.getElementById("modal-btn");
 
-// When the user clicks anywhere outside of the modal, close-mdl it
+// chiudi modale click fuori
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
@@ -69,24 +69,25 @@ function hidePopup2() {
 
 }
 
-
+//elementi trascinabili
 var formElements = document.querySelectorAll(".form-element");
 formElements.forEach(function (element) {
     element.draggable = true;
     element.ondragstart = handleDragStart;
 });
 
+//workspace
 var droppableArea = document.getElementById("formContainer");
 droppableArea.ondragover = handleDragOver;
 droppableArea.ondrop = handleDrop;
 
-//click svg hide window
+//nascondi finestra svg al click
 var svgselect = document.querySelectorAll(".svg-hide");
 svgselect.forEach(function (element) {
     element.onclick = hidePopup;
 });
 
-//add row
+//aggiunta riga-colonne
 function addColumn(event) {
     function propotionedColumns() {
         for (i = 0; i < event + 1; i++) {
@@ -104,6 +105,7 @@ function addColumn(event) {
     count++;
     document.getElementById("formContainer").appendChild(row);
 
+    //12 tipi colonne
     switch (event) {
         case 0:
         case 1:
@@ -196,6 +198,7 @@ function addColumn(event) {
     }
 }
 
+//rimuovi ultimo elemento in base all'id
 function deleteLastRow() {
     var myEle = document.getElementById(count - 1);
     if (myEle) {
@@ -208,18 +211,53 @@ function deleteLastRow() {
     }
 }
 
+//salva modifiche da textarea
 function modify() {
     document.getElementById(count - 1).innerHTML = document.getElementById("textarea-box").value;
-    
 }
 
-function editHasAttribute(attribute) {
-    console.log(document.getElementById("textarea-box").value)
-    if (true) {
-        return true;
+
+
+function editHasAttribute(string) {
+    console.log(count - 1);
+    var boxContent = document.getElementById("textarea-box");
+    //div container temporaneo 
+    var div = document.createElement("div");
+    div.id = "tempDiv";
+    //copia del codice da textarea a tempDiv
+    div.innerHTML = boxContent.value;
+    //div non visibile che funge da passaggio
+    document.getElementById("temp").appendChild(div);
+    //filtro input senza l'attributo passato
+    var sortedDivs = document.getElementById('temp').querySelectorAll('#tempDiv > div > input:not([' + string + '])');
+    console.log(sortedDivs);
+    console.log("Inputs without \'" + string + "\' attribute. Count: " + sortedDivs.length + ".");
+    //aggiunta attributi
+    sortedDivs.forEach(function (element) {
+        switch (string) {
+            case "required":
+                element.setAttribute(string, "true");
+                console.log(element);
+                break;
+            default:
+                element.setAttribute(string, "10")
+                break;
+        }
     }
-    return false;
+    );
+    console.log(sortedDivs);
+    var tempElement = document.getElementById('tempDiv');
+
+    for (var i = 0; i < sortedDivs.length; i++) {
+        tempElement.firstElementChild.appendChild(sortedDivs[i])
+    }
+    //aggiornamento contenuto textarea 
+    boxContent.value = tempElement.innerHTML;
+    //rimozione container temporaneo
+    tempElement.remove();
+
 }
+
 async function copy(event) {
     let text = document.getElementById("formContainer");
     console.log(event);
@@ -230,7 +268,7 @@ async function copy(event) {
             var cpyBtn = document.getElementById("BTN-copyClipboard");
             cpyBtn.innerHTML = "Copied";
             setTimeout(() => cpyBtn.innerHTML = "Copy", 4000);
-            /* Resolved - text copied to clipboard successfully */
+            //copia codice
         }
         else if (event == 1) {
             duplicateChildNodes("formContainer");
@@ -238,7 +276,7 @@ async function copy(event) {
 
     } catch (err) {
         console.error('Failed to copy: ', err);
-        /* Rejected - text failed to copy to the clipboard */
+        //errore
     }
 }
 function duplicateChildNodes(parentId) {
@@ -250,7 +288,9 @@ function duplicateChildNodes(parentId) {
         document.getElementById("contents-box").appendChild(cln);
     });
 };
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+
+// da bootstrap docs
+//Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
     'use strict'
 
