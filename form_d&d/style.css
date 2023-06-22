@@ -1,0 +1,188 @@
+.droppable-area {
+    min-height: 200px;
+    border: 2px dashed #ccc;
+    padding: 20px;
+}
+
+[class*="col"] {
+    border: 1px dashed #ccc;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+[id*="col-svg"] {
+    border: none;
+    margin: 10px auto;
+    display: inline-block;
+}
+
+[id*="no-border"] {
+    border: none;
+}
+
+
+textarea {
+    height: 100%;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+#bottombtn {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
+.form-element {
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: move;
+    margin-bottom: 10px;
+    width: 40%;
+    height: 8%;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.form-element label {
+    font-weight: bold;
+}
+
+.form-element input {
+    width: 100%;
+}
+
+#toolbox {
+    overflow-y: scroll;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: none;
+}
+
+#formContainer {
+    background-color: #7d92e4;
+    height: 100%;
+    border: none;
+}
+
+
+body {
+    background: #5B5EA6;
+    text-align: center;
+    color: #FFF;
+}
+
+.table {
+    color: white;
+}
+
+.popup,
+.popup2 {
+    display: none;
+}
+
+.popup.open,
+.popup2.open2 {
+    display: block;
+}
+
+.blocker,
+.blocker2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    background: rgba(0, 0, 0, .5);
+}
+
+.popup .contents {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+    height: 50%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+#contents-box {
+    background-color: #808080;
+}
+
+.popup2 .contents2 {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+    height: 65%;
+
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+}
+
+.container-svg {
+    margin: 20px auto;
+}
+
+svg {
+    fill: gray;
+
+}
+
+svg:hover {
+    fill: gainsboro;
+}
+
+/*Elements Modal css */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #5B5EA6;
+    margin: auto;
+    height: 85%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    overflow-y: auto;
+}
