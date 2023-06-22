@@ -1,19 +1,22 @@
 //contatore elementi
 let count = 0;
 var dragElement = null;
-
+let selectedElement = 0;
 
 //drag & drop
 function handleDragStart(event) {
+    console.log("Funzione handleDragStart");
     dragElement = event.target;
     event.dataTransfer.setData("text/plain", ""); // Necessario per Firefox
 }
 
 function handleDragOver(event) {
+    console.log("Funzione handleDragOver");
     event.preventDefault();
 }
 
 function handleDrop(event) {
+    console.log("Funzione handleDrop");
     event.preventDefault();
     var element = dragElement.cloneNode(true);
     element.classList.remove("form-element");
@@ -23,8 +26,9 @@ function handleDrop(event) {
     element.onclick = function () {
         modal.style.display = "block";
         var clickedElem = document.getElementById(this.id);
-        console.log();
         document.getElementById("textarea-box").value = clickedElem.innerHTML;
+        selectedElement = this.id;
+        console.log("clicked: id" + selectedElement);
 
     }
     event.target.appendChild(element);
@@ -37,6 +41,7 @@ var btn = document.getElementById("modal-btn");
 
 // chiudi modale click fuori
 window.onclick = function (event) {
+    console.log("Funzione onclick modale");
     if (event.target == modal) {
         modal.style.display = "none";
         var element = document.getElementById("textarea-box").value;
@@ -50,18 +55,22 @@ window.onclick = function (event) {
 //finestra selezione colonne
 const popup = document.querySelector('.popup');
 function addBtn() {
+    console.log("Funzione addBtn");
     popup.classList.add('open');
 }
 function hidePopup() {
+    console.log("Funzione hidePopup");
     popup.classList.remove('open');
 }
 
 const popup2 = document.querySelector('.popup2');
 function showpopup2(event) {
+    console.log("Funzione showpopup2");
     popup2.classList.add('open2');
     copy(1);
 }
 function hidePopup2() {
+    console.log("Funzione hidePopup2");
     popup2.classList.remove('open2');
     let element = document.getElementById("contents-box");
     while (element.firstChild) {
@@ -90,6 +99,7 @@ svgselect.forEach(function (element) {
 
 //aggiunta riga-colonne
 function addColumn(event) {
+    console.log("Funzione addColumn");
     function propotionedColumns() {
         for (i = 0; i < event + 1; i++) {
             var col = document.createElement("div");
@@ -201,6 +211,7 @@ function addColumn(event) {
 
 //rimuovi ultimo elemento in base all'id
 function deleteLastRow() {
+    console.log("Funzione deleteLastRow");
     var myEle = document.getElementById(count - 1);
     if (myEle) {
         count--;
@@ -214,7 +225,9 @@ function deleteLastRow() {
 
 //salva modifiche da textarea
 function modify() {
-    document.getElementById(count - 1).innerHTML = document.getElementById("textarea-box").value;
+    console.log("Funzione modify");
+    console.log("Modificato: " + selectedElement);
+    document.getElementById(selectedElement).innerHTML = document.getElementById("textarea-box").value;
 }
 
 
