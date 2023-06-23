@@ -1,507 +1,56 @@
-//contatore elementi
-let count = 0;
-var dragElement = null;
+<!DOCTYPE html>
+<html lang="en">
 
-
-//drag & drop
-function handleDragStart(event) {
-    dragElement = event.target;
-    event.dataTransfer.setData("text/plain", ""); // Necessario per Firefox
-}
-
-function handleDragOver(event) {
-    event.preventDefault();
-}
-
-function handleDrop(event) {
-    event.preventDefault();
-    var element = dragElement.cloneNode(true);
-    element.classList.remove("form-element");
-    element.draggable = false;
-    element.id = count;
-    element.ondragstart = handleDragStart;
-    element.onclick = function () {
-        modal.style.display = "block";
-        var clickedElem = document.getElementById(this.id);
-        console.log();
-        document.getElementById("textarea-box").value = clickedElem.innerHTML;
-
-    }
-    event.target.appendChild(element);
-    count++;
-}
-
-// modale
-var modal = document.getElementById('elements-modal');
-var btn = document.getElementById("modal-btn");
-
-// chiudi modale click fuori
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        var element = document.getElementById("textarea-box").value;
-        if (element == "") {
-            console.log("element = null, count =", count + ".");
-            deleteLastRow();
-        }
-    }
-}
-
-//finestra selezione colonne
-const popup = document.querySelector('.popup');
-function addBtn() {
-    popup.classList.add('open');
-}
-function hidePopup() {
-    popup.classList.remove('open');
-}
-
-const popup2 = document.querySelector('.popup2');
-function showpopup2(event) {
-    popup2.classList.add('open2');
-    copy(1);
-}
-function hidePopup2() {
-    popup2.classList.remove('open2');
-    let element = document.getElementById("contents-box");
-    while (element.firstChild) {
-        element.removeChild(element.firstChild);
-    }
-
-}
-
-//elementi trascinabili
-var formElements = document.querySelectorAll(".form-element");
-formElements.forEach(function (element) {
-    element.draggable = true;
-    element.ondragstart = handleDragStart;
-});
-
-//workspace
-var droppableArea = document.getElementById("formContainer");
-droppableArea.ondragover = handleDragOver;
-droppableArea.ondrop = handleDrop;
-
-//nascondi finestra svg al click
-var svgselect = document.querySelectorAll(".svg-hide");
-svgselect.forEach(function (element) {
-    element.onclick = hidePopup;
-});
-
-//aggiunta riga-colonne
-function addColumn(event) {
-    function propotionedColumns() {
-        for (i = 0; i < event + 1; i++) {
-            var col = document.createElement("div");
-            col.className = "col";
-            col.innerHTML = "column";
-            row.appendChild(col);
-        }
-    }
-    console.log("Select: " + event);
-    var row = document.createElement("div");
-    row.className = "row";
-    console.log("rows: " + count + ".");
-    row.id = count;
-    count++;
-    document.getElementById("formContainer").appendChild(row);
-
-    //12 tipi colonne
-    switch (event) {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-            propotionedColumns();
-            break;
-        case 6:
-            var col = document.createElement("div");
-            col.className = "col-4";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col-8";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            break;
-        case 7:
-            var col = document.createElement("div");
-            col.className = "col-8";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col-4";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            break;
-
-        case 8:
-            var col = document.createElement("div");
-            col.className = "col-3";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col-3";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col-6";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            break;
-
-        case 9:
-            var col = document.createElement("div");
-            col.className = "col-6";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col-3";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col-3";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            break;
-
-        case 10:
-            var col = document.createElement("div");
-            col.className = "col";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col-6";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            break;
-
-        case 11:
-            var col = document.createElement("div");
-            col.className = "col-2";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col-8";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            var col = document.createElement("div");
-            col.className = "col-2";
-            col.innerHTML = "column";
-            row.appendChild(col);
-            break;
-    }
-}
-
-//rimuovi ultimo elemento in base all'id
-function deleteLastRow() {
-    var myEle = document.getElementById(count - 1);
-    if (myEle) {
-        count--;
-        document.getElementById(count).remove();
-        console.log("rows " + count + " removed.")
-    }
-    else {
-        console.log("rows: " + count + ", no rows removed.")
-    }
-}
-
-//salva modifiche da textarea
-function modify() {
-    document.getElementById(count - 1).innerHTML = document.getElementById("textarea-box").value;
-}
-
-
-
-function editHasAttribute(string) {
-    console.log(count - 1);
-    var boxContent = document.getElementById("textarea-box");
-    //div container temporaneo 
-    var div = document.createElement("div");
-    div.id = "tempDiv";
-    //copia del codice da textarea a tempDiv
-    div.innerHTML = boxContent.value;
-    //div non visibile che funge da passaggio
-    document.getElementById("temp").appendChild(div);
-    //filtro input senza l'attributo passato
-    var sortedDivs = document.getElementById('temp').querySelectorAll('#tempDiv > div > input:not([' + string + '])');
-    console.log(sortedDivs);
-    console.log("Inputs without \'" + string + "\' attribute. Count: " + sortedDivs.length + ".");
-    //aggiunta attributi
-    sortedDivs.forEach(function (element) {
-        switch (string) {
-            case "required":
-                element.setAttribute(string, "true");
-                console.log(element);
-                break;
-            default:
-                element.setAttribute(string, "10")
-                break;
-        }
-    }
-    );
-    console.log(sortedDivs);
-    var tempElement = document.getElementById('tempDiv');
-
-    for (var i = 0; i < sortedDivs.length; i++) {
-        tempElement.firstElementChild.appendChild(sortedDivs[i])
-    }
-    //aggiornamento contenuto textarea 
-    boxContent.value = tempElement.innerHTML;
-    //rimozione container temporaneo
-    tempElement.remove();
-
-}
-
-async function copy(event) {
-    let text = document.getElementById("formContainer");
-    console.log(event);
-    try {
-        if (event == 2) {
-            await navigator.clipboard.writeText(text.innerHTML)
-            console.log('Content copied to clipboard');
-            var cpyBtn = document.getElementById("BTN-copyClipboard");
-            cpyBtn.innerHTML = "Copied";
-            setTimeout(() => cpyBtn.innerHTML = "Copy", 4000);
-            //copia codice
-        }
-        else if (event == 1) {
-            duplicateChildNodes("formContainer");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .header {
+            background-color: violet;
+            height: 40px;
         }
 
-    } catch (err) {
-        console.error('Failed to copy: ', err);
-        //errore
-    }
-}
-function duplicateChildNodes(parentId) {
-    var parent = document.getElementById(parentId);
-    NodeList.prototype.forEach = Array.prototype.forEach;
-    var children = parent.childNodes;
-    children.forEach(function (item) {
-        var cln = item.cloneNode(true);
-        document.getElementById("contents-box").appendChild(cln);
-    });
-};
+        .container {
+            background-color: orange;
+            width: 400px;
+        }
 
-// da bootstrap docs
-//Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-    'use strict'
+        .content {
+            background-color: lightblue;
+            height: 100px;
+            overflow: hidden;
+        }
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
+        .content:hover {
+            overflow: visible;
+            height: auto;
+        }
 
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
+        .button {
+            background-color: lightgreen;
+            text-align: center;
+            height: 30px;
+        }
+    </style>
+    <title>Document</title>
+</head>
 
-                form.classList.add('was-validated')
-            }, false)
-        })
-})()
+<body>
+    <div class="header">
+    </div>
+    <div class="container">
+        <div class="content">
+        </div>
+        <div class="button">
+            <button>
+                Button
+            </button>
+        </div>
+    </div>
+    <div class="space">
+    </div>
+    <div class="footer">
+    </div>
+</body>
 
-.droppable-area {
-    min-height: 200px;
-    border: 2px dashed #ccc;
-    padding: 20px;
-}
-
-[class*="col"] {
-    border: 1px dashed #ccc;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-[id*="col-svg"] {
-    border: none;
-    margin: 10px auto;
-    display: inline-block;
-}
-
-[id*="no-border"] {
-    border: none;
-}
-
-
-textarea {
-    height: 100%;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    padding: 10px;
-    max-width: 100%;
-    line-height: 1.5;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px #999;
-}
-[class="btn btn-dark"],[class="btn btn-light"]{
-    width: min-content;
-    margin-top: 5px;
-    margin-right: 5px;
-}
-
-#bottombtn {
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-}
-
-.form-element {
-    border: 2px solid black;
-    border-radius: 5px;
-    cursor: move;
-    margin-bottom: 10px;
-    width: 40%;
-    height: 8%;
-    padding: 20px;
-    overflow: hidden;
-}
-
-.form-element label {
-    font-weight: bold;
-}
-
-.form-element input {
-    width: 100%;
-}
-
-#toolbox {
-    overflow-y: scroll;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    border: none;
-}
-
-#formContainer {
-    background-color: #7d92e4;
-    height: 100%;
-    border: none;
-}
-
-
-body {
-    background: #5B5EA6;
-    text-align: center;
-    color: #FFF;
-}
-
-.table {
-    color: white;
-}
-
-.popup,
-.popup2 {
-    display: none;
-}
-
-.popup.open,
-.popup2.open2 {
-    display: block;
-}
-
-.blocker,
-.blocker2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    content: ' ';
-    background: rgba(0, 0, 0, .5);
-}
-
-.popup .contents {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 60%;
-    height: 50%;
-    display: block;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-}
-
-#contents-box {
-    background-color: #808080;
-}
-
-.popup2 .contents2 {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 60%;
-    height: 65%;
-
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    overflow: auto;
-}
-
-.container-svg {
-    margin: 20px auto;
-}
-
-svg {
-    fill: gray;
-
-}
-
-svg:hover {
-    fill: gainsboro;
-}
-
-/*Elements Modal css */
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #5B5EA6;
-    margin: auto;
-    height: 85%;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    overflow-y: auto;
-}
+</html>

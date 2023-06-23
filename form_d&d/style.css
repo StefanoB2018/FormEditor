@@ -46,15 +46,20 @@ textarea {
     right: 0px;
 }
 
-.form-element {
+.form-element,
+.form-el-preview {
+    margin-bottom: 20px;
+    margin-right: 20px;
     border: 2px solid black;
     border-radius: 5px;
     cursor: move;
-    margin-bottom: 10px;
-    width: 40%;
-    height: 8%;
-    padding: 20px;
+    width: 120px;
+    height: 100px;
     overflow: hidden;
+}
+
+i {
+    text-align: center;
 }
 
 .form-element label {
@@ -194,11 +199,11 @@ svg:hover {
     overflow-y: auto;
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
 }
 
-a:hover{
+a:hover {
     color: gray;
 }

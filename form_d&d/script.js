@@ -4,6 +4,34 @@ var dragElement = null;
 let selectedElement = 0;
 let inputLength = 20;
 
+//toolbox show hide icon
+var form_el = document.querySelectorAll('.form-element');
+for (var i = 0; i < form_el.length; i++) {
+    form_el[i].id = 'form_el' + i;
+    form_el[i].style.display = "none";
+}
+
+var form_el = document.querySelectorAll('.form-el-preview');
+for (var i = 0; i < form_el.length; i++) {
+    var temp = 'prevform_el' + i;
+    form_el[i].id = temp;
+    form_el[i].addEventListener(
+        "mouseenter",
+        (event) => {
+            console.log(event.target.id);
+            var toolel = document.querySelector(event.target.id.replace("prev","#"))
+            document.querySelector("#" + event.target.id).style.display = "none";
+            toolel.style.display = "";
+            setTimeout(() => {
+                toolel.style.display = "none";
+                document.querySelector("#" + event.target.id).style.display = "";
+                
+            }, 8000);
+        },
+        false
+    );
+}
+
 //drag & drop
 function handleDragStart(event) {
     console.log("Funzione handleDragStart");
