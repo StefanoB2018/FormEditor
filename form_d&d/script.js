@@ -314,7 +314,11 @@ async function copy(event) {
             //copia codice
         }
         else if (event == 1) {
+            //to fix later
             duplicateChildNodes("formContainer");
+            document.querySelectorAll("#contents-box > .row ").forEach(function(item){
+                item.style.border= "none";
+            })
         }
 
     } catch (err) {
@@ -322,6 +326,7 @@ async function copy(event) {
         //errore
     }
 }
+
 function duplicateChildNodes(parentId) {
     var parent = document.getElementById(parentId);
     NodeList.prototype.forEach = Array.prototype.forEach;

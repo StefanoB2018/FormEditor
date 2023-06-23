@@ -56,6 +56,14 @@ textarea {
     width: 120px;
     height: 100px;
     overflow: hidden;
+    background-color: #4d4f8c;
+}
+
+.form-element:hover{
+    background-color: #424478;
+}
+.form-el-container{
+    margin-top: 20%;
 }
 
 i {
