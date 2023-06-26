@@ -16,261 +16,196 @@
 
   <body>
     <div class="container">
-        <h1>Generatore di Form Drag & Drop</h1>
-        <div class="row">
-
-            <div class="col-md-3" id="toolbox">
-
-                <h3>Elementi del Form</h3>
-                <!--drag section-->
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-t"></i>
-                        <p>Input Text</p>
-                    </div>
+      <h1>Generatore di Form Drag & Drop</h1>
+      <div class="form-check" id="editOnClick">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          name="editOnClick"
+          id="flexCheckChecked"
+        />
+        <label class="form-check-label" for="flexCheckChecked">
+          Edit on click
+        </label>
+      </div>
+      <div class="row">
+        <div class="col-md-3" id="toolbox">
+          <h3>Elementi del Form</h3>
+          <!--drag section-->
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-t"></i>
+              <p>Input Text</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <label for="validationCustom01" class="form-label">Input</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom01"
+                placeholder="text"
+                required
+              />
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-key"></i>
+              <p>Password</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" placeholder="" />
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-envelope"></i>
+              <p>Mail Input</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <label for="exampleFormControlInput1" class="form-label"
+                >Email address</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="name@example.com"
+              />
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-user"></i>
+              <p>Username Input</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <div class="input-group has-validation">
+                <label for="validationCustomUsername" class="form-label"
+                  >Username</label
+                >
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustomUsername"
+                  aria-describedby="inputGroupPrepend"
+                  required
+                />
+                <div class="invalid-feedback">Please choose a username.</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-heading"></i>
+              <p>h1-display-8</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <h1 class="display-8">h1-display-8</h1>
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-regular fa-circle-dot"></i>
+              <i class="fa-regular fa-circle-dot"></i>
+              <i class="fa-regular fa-circle-dot"></i>
+              <p>Multiple Radios</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gridRadios"
+                      id="gridRadios1"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="gridRadios1">
+                      First radio
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gridRadios"
+                      id="gridRadios2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="gridRadios2">
+                      Second radio
+                    </label>
+                  </div>
+                  <div class="form-check disabled">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="gridRadios"
+                      id="gridRadios3"
+                      value="option3"
+                      disabled
+                    />
+                    <label class="form-check-label" for="gridRadios3">
+                      Third disabled radio
+                    </label>
+                  </div>
                 </div>
-                <div class="form-element">
-                    <div>
-                        <label for="validationCustom01" class="form-label">Input</label>
-                        <input type="text" class="form-control" id="validationCustom01" placeholder="text" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-key"></i>
-                        <p>Password</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <label class="form-label">Password</label>
-                        <input type="password" class="form-control" placeholder="">
-                    </div>
-
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-envelope"></i>
-                        <p>Mail Input</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
-                    </div>
-
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-user"></i>
-                        <p>Username Input</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <div class="input-group has-validation">
-                            <label for="validationCustomUsername" class="form-label">Username</label>
-                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" class="form-control" id="validationCustomUsername"
-                                aria-describedby="inputGroupPrepend" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-heading"></i>
-                        <p>h1-display-8</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <h1 class="display-8">h1-display-8</h1>
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-regular fa-circle-dot"></i>
-                        <i class="fa-regular fa-circle-dot"></i>
-                        <i class="fa-regular fa-circle-dot"></i>
-                        <p>Multiple Radios</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <fieldset class="row mb-3">
-                            <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-                            <div class="col-sm-10">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-                                        value="option1" checked>
-                                    <label class="form-check-label" for="gridRadios1">
-                                        First radio
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
-                                        value="option2">
-                                    <label class="form-check-label" for="gridRadios2">
-                                        Second radio
-                                    </label>
-                                </div>
-                                <div class="form-check disabled">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3"
-                                        value="option3" disabled>
-                                    <label class="form-check-label" for="gridRadios3">
-                                        Third disabled radio
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-regular fa-circle-dot"></i>
-                        <p>1 Radio input</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <label>
-                            text:
-                        </label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-image"></i>
-                        <p>Responsive Image</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <img src="thumbnail.png" class="img-fluid" alt="responsive-image">
-                    </div>
-                </div>
-
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-square-check"></i>
-                        <p>Checkbox</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                Agree to terms and conditions
-                            </label>
-                            <div class="invalid-feedback">
-                                You must agree before submitting.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-file"></i>
-                        <p>Choose File</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <input type="file" class="form-control" aria-label="file example" required>
-                        <div class="invalid-feedback">Example invalid form file feedback</div>
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-grip-lines"></i>
-                        <p>Input Options</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <select class="form-select" required aria-label="select example">
-                            <option value="">Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                        <div class="invalid-feedback">Example invalid select feedback</div>
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-ellipsis"></i>
-                        <p>1 Row 3 Columns</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <div class="row">
-                            <div class="col">
-                                Column
-                            </div>
-                            <div class="col">
-                                Column
-                            </div>
-                            <div class="col">
-                                Column
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <span class="badge bg-secondary">New</span>
-                        <p>Badge</p>
-                    </div>
-                </div>
-                <div class="form-element">
-                    <div>
-                        <h6>Example heading <span class="badge bg-secondary">New</span></h6>
-                    </div>
-                </div>
-                <div class="form-el-preview">
-                    <div class="form-el-container">
-                        <i class="fa-solid fa-check"></i>
-                        <p>Submit</p>
-                    </div>
-                </div>
-                <div class="form-element">
-
-                    <div>
-
-                        <button class="btn btn-primary" type="submit">Submit form</button>
-                    </div>
-
-                </div>
-
-                <!-- Modal textarea-->
-                <div id="elements-modal" class="modal">
-
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <h5>Edit</h5>
-
-                        <textarea id="textarea-box"></textarea>
-                        <div class="btn btn-dark" onclick="modify()">Save changes</div>
-
-                        <div>
-                            <div class="btn btn-light" onclick="editHasAttribute('required')">Required(input)</div>
-                            <div class="btn btn-light" onclick="editHasAttribute('maxlength')">Maxlength(input)</div>
-                            <div class="btn btn-light" onclick="editHasAttribute('minlength')">Minlength(input)</div>
-                        </div>
-                        <div id="temp" style="display: none;"></div>
-                    </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-regular fa-circle-dot"></i>
+              <p>1 Radio input</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <label> text: </label>
+              <input
+                type="radio"
+                name="optionsRadios"
+                id="optionsRadios1"
+                value="option1"
+                checked=""
+              />
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-image"></i>
+              <p>Responsive Image</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <img
+                src="thumbnail.png"
+                class="img-fluid"
+                alt="responsive-image"
+              />
+            </div>
+          </div>
 
           <div class="form-el-preview">
             <div class="form-el-container">
