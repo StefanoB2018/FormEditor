@@ -32,10 +32,10 @@ for (var i = 0; i < form_el.length; i++) {
       console.log(event.target.id);
       var toolel = document.querySelector(event.target.id.replace("prev", "#"));
       document.querySelector("#" + event.target.id).style.display = "none";
-      toolel.style.display = "";
+      toolel.removeAttribute("style");
       setTimeout(() => {
         toolel.style.display = "none";
-        document.querySelector("#" + event.target.id).style.display = "";
+        document.querySelector("#" + event.target.id).removeAttribute("style");
       }, 8000);
     },
     false
@@ -59,7 +59,8 @@ function handleDrop(event) {
   event.preventDefault();
   var element = dragElement.cloneNode(true);
   element.classList.remove("form-element");
-  element.draggable = false;
+  //drag and drop dalla area drop, "element.draggable = true" per attivare.
+  element.removeAttribute("draggable");
   element.id = count;
   element.ondragstart = handleDragStart;
   element.onclick = function () {
@@ -321,9 +322,9 @@ async function copy(event) {
   let text = document.getElementById("formContainer");
   let placeholder = document.createElement("div");
   placeholder.innerHTML = text.innerHTML;
-  placeholder.querySelectorAll(".col").forEach(function (element) {
+  placeholder.querySelectorAll("[class*='col']").forEach(function (element) {
     console.log("replaced column text inside div col");
-    element.innerHTML = element.innerHTML.replace("column", " ");
+    element.innerHTML = element.innerHTML.replaceAll("column", "");
   });
   try {
     if (event == 2) {
@@ -336,13 +337,7 @@ async function copy(event) {
       //copia codice
     } else if (event == 1) {
       console.log(event + " append to iframe");
-      //to fix later
       duplicateChildNodes("formContainer");
-      document
-        .querySelectorAll("#contents-box > .row ")
-        .forEach(function (item) {
-          item.style.border = "none";
-        });
     }
   } catch (err) {
     console.error("Failed to copy: ", err);
@@ -373,9 +368,9 @@ function duplicateChildNodes(parentId) {
       console.log(e);
     }
   });
-  doc.documentElement.querySelectorAll(".col").forEach(function (element) {
+  doc.documentElement.querySelectorAll("[class*='col']").forEach(function (item) {
     console.log("replaced column text inside div col");
-    element.innerHTML = element.innerHTML.replace("column", " ");
+    item.innerHTML = item.innerHTML.replaceAll("column", "");
   });
   let destDocument = frame.contentDocument;
   let srcNode = doc.documentElement;
