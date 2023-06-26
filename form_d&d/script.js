@@ -319,10 +319,16 @@ function editHasAttribute(string) {
 
 async function copy(event) {
   let text = document.getElementById("formContainer");
+  let placeholder = document.createElement("div");
+  placeholder.innerHTML = text.innerHTML;
+  placeholder.querySelectorAll(".col").forEach(function (element) {
+    console.log("replaced column text inside div col");
+    element.innerHTML = element.innerHTML.replace("column", " ");
+  });
   try {
     if (event == 2) {
       console.log(event + " copy");
-      await navigator.clipboard.writeText(text.innerHTML);
+      await navigator.clipboard.writeText(placeholder.innerHTML);
       console.log("Content copied to clipboard");
       var cpyBtn = document.getElementById("BTN-copyClipboard");
       cpyBtn.innerHTML = "Copied";
