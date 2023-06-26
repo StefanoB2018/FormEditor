@@ -13,10 +13,10 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
     <div class="container">
       <h1>Generatore di Form Drag & Drop</h1>
+      <!--Checkbox edit on click-->
       <div class="form-check" id="editOnClick">
         <input
           class="form-check-input"
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col-md-3" id="toolbox">
           <h3>Elementi del Form</h3>
-          <!--drag section-->
+          <!--Elementi trascinabili-->
           <div class="form-el-preview">
             <div class="form-el-container">
               <i class="fa-solid fa-t"></i>
@@ -310,7 +310,7 @@
             </div>
           </div>
 
-          <!-- Modal textarea-->
+          <!-- Preview textarea -->
           <div id="elements-modal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
@@ -344,8 +344,10 @@
           </div>
         </div>
         <div class="col-md-9" id="no-border">
+
           <!--droparea-->
           <div class="droppable-area" id="formContainer"></div>
+          <!--bottoni in fondo-->
           <div id="bottombtn">
             <div class="btn btn-warning" onclick="showpopup2()">Preview</div>
             <div class="btn btn-primary" onclick="addBtn()">Add</div>
@@ -519,6 +521,7 @@
         </div>
       </div>
     </div>
+
     <div class="footer" style="margin-top: 20px">
       <p class="text-light-muted mb-0 py-2">
         © 2019 Bootstrapious All rights reserved.
