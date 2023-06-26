@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drag and drop</title>
-    <link rel="icon" type="image/x-icon" href="favicon1.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="icon" type="image/x-icon" href="favicon1.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
         <h1>Generatore di Form Drag & Drop</h1>
         <div class="row">
@@ -269,135 +272,341 @@
                         <div id="temp" style="display: none;"></div>
                     </div>
 
-                </div>
-
-
-
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-square-check"></i>
+              <p>Checkbox</p>
             </div>
-            <div class="col-md-9" id="no-border">
-                <!--droparea-->
-                <div class="droppable-area" id="formContainer"></div>
-                <div id="bottombtn">
-                    <div class="btn btn-warning" onclick="showpopup2()">Preview</div>
-                    <div class="btn btn-primary" onclick="addBtn()">Add</div>
-                    <div class="btn btn-danger" onclick="deleteLastRow()">Remove</div>
-                    <div class="btn btn-success" id="BTN-copyClipboard" onclick="copy(2)">Copy</div>
+          </div>
+          <div class="form-element">
+            <div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                  required
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
                 </div>
-                <div class="popup2">
-                    <div class="blocker2" onclick="hidePopup2()"></div>
-                    <div class="contents2" id="contents-box">
-
-                    </div>
-                </div>
-                <div class="popup">
-                    <div class="blocker" onclick="hidePopup()"></div>
-                    <div class="contents">
-                        <div class="container-svg">
-                            <div class="row">
-                                <div class="col-sm" id="col-svg1">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(0)">
-                                        <path class="svg-hide" d="M100,0V50H0V0Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg2">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(1)">
-                                        <path class="svg-hide" d="M49,0V50H0V0Z M100,0V50H51V0Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg3">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(2)">
-                                        <path class="svg-hide" d="M32,0V50H0V0Z M66,0V50H34V0Z M100,0V50H68V0Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg4">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(3)">
-                                        <path class="svg-hide"
-                                            d="M23.5,0V50H0V0Z M49,0V50H25.5V0Z M74.5,0V50H51V0Z M100,0V50H76.5V0Z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg5">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(6)">
-                                        <path class="svg-hide" d="M32.6667,0V50H0V0Z M100,0V50H34.6667V0Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg6">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(7)">
-                                        <path class="svg-hide" d="M65.3333,0V50H0V0Z M100,0V50H67.3333V0Z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container-svg">
-                            <div class="row">
-                                <div class="col-sm" id="col-svg7">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(8)">
-                                        <path class="svg-hide" d="M24,0V50H0V0Z M50,0V50H26V0Z M100,0V50H52V0Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg8">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(9)">
-                                        <path class="svg-hide" d="M48,0V50H0V0Z M74,0V50H50V0Z M100,0V50H76V0Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg9">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(10)">
-                                        <path class="svg-hide" d="M24,0V50H0V0Z M74,0V50H26V0Z M100,0V50H76V0Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg10">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(4)">
-                                        <path class="svg-hide"
-                                            d="M18.4,0V50H0V0Z M38.8,0V50H20.4V0Z M59.2,0V50H40.8V0Z M79.6,0V50H61.2V0Z M100,0V50H81.6V0Z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg11">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(11)">
-                                        <path class="svg-hide" d="M16,0V50H0V0Z M82,0V50H18V0Z M100,0V50H84V0Z"></path>
-                                    </svg>
-                                </div>
-                                <div class="col-sm" id="col-svg12">
-                                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 50"
-                                        onclick="addColumn(5)">
-                                        <path class="svg-hide"
-                                            d="M15,0V50H0V0Z M32,0V50H17V0Z M49,0V50H34V0Z M66,0V50H51V0Z M83,0V50H68V0Z M100,0V50H85V0Z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-file"></i>
+              <p>Choose File</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <input
+                type="file"
+                class="form-control"
+                aria-label="file example"
+                required
+              />
+              <div class="invalid-feedback">
+                Example invalid form file feedback
+              </div>
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-grip-lines"></i>
+              <p>Input Options</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <select class="form-select" required aria-label="select example">
+                <option value="">Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <div class="invalid-feedback">
+                Example invalid select feedback
+              </div>
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-ellipsis"></i>
+              <p>1 Row 3 Columns</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <div class="row">
+                <div class="col">column</div>
+                <div class="col">column</div>
+                <div class="col">column</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <span class="badge bg-secondary">New</span>
+              <p>Badge</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <h6>
+                Example heading <span class="badge bg-secondary">New</span>
+              </h6>
+            </div>
+          </div>
+          <div class="form-el-preview">
+            <div class="form-el-container">
+              <i class="fa-solid fa-check"></i>
+              <p>Submit</p>
+            </div>
+          </div>
+          <div class="form-element">
+            <div>
+              <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+          </div>
+
+          <!-- Modal textarea-->
+          <div id="elements-modal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <h5>Edit</h5>
+
+              <textarea id="textarea-box"></textarea>
+              <div class="btn btn-dark" onclick="modify()">Save changes</div>
+
+              <div>
+                <div
+                  class="btn btn-light"
+                  onclick="editHasAttribute('required')"
+                >
+                  Required(input)
+                </div>
+                <div
+                  class="btn btn-light"
+                  onclick="editHasAttribute('maxlength')"
+                >
+                  Maxlength(input)
+                </div>
+                <div
+                  class="btn btn-light"
+                  onclick="editHasAttribute('minlength')"
+                >
+                  Minlength(input)
+                </div>
+              </div>
+              <div id="temp" style="display: none"></div>
+            </div>
+          </div>
         </div>
-
+        <div class="col-md-9" id="no-border">
+          <!--droparea-->
+          <div class="droppable-area" id="formContainer"></div>
+          <div id="bottombtn">
+            <div class="btn btn-warning" onclick="showpopup2()">Preview</div>
+            <div class="btn btn-primary" onclick="addBtn()">Add</div>
+            <div class="btn btn-danger" onclick="deleteLastRow()">Remove</div>
+            <div
+              class="btn btn-success"
+              id="BTN-copyClipboard"
+              onclick="copy(2)"
+            >
+              Copy
+            </div>
+          </div>
+          <div class="popup2">
+            <div class="blocker2" onclick="hidePopup2()"></div>
+            <iframe class="contents2" id="contents-box"></iframe>
+          </div>
+          <div class="popup">
+            <div class="blocker" onclick="hidePopup()"></div>
+            <div class="contents">
+              <div class="container-svg">
+                <div class="row">
+                  <div class="col-sm" id="col-svg1">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(0)"
+                    >
+                      <path class="svg-hide" d="M100,0V50H0V0Z"></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg2">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(1)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M49,0V50H0V0Z M100,0V50H51V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg3">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(2)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M32,0V50H0V0Z M66,0V50H34V0Z M100,0V50H68V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg4">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(3)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M23.5,0V50H0V0Z M49,0V50H25.5V0Z M74.5,0V50H51V0Z M100,0V50H76.5V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg5">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(6)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M32.6667,0V50H0V0Z M100,0V50H34.6667V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg6">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(7)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M65.3333,0V50H0V0Z M100,0V50H67.3333V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="container-svg">
+                <div class="row">
+                  <div class="col-sm" id="col-svg7">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(8)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M24,0V50H0V0Z M50,0V50H26V0Z M100,0V50H52V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg8">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(9)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M48,0V50H0V0Z M74,0V50H50V0Z M100,0V50H76V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg9">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(10)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M24,0V50H0V0Z M74,0V50H26V0Z M100,0V50H76V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg10">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(4)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M18.4,0V50H0V0Z M38.8,0V50H20.4V0Z M59.2,0V50H40.8V0Z M79.6,0V50H61.2V0Z M100,0V50H81.6V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg11">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(11)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M16,0V50H0V0Z M82,0V50H18V0Z M100,0V50H84V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="col-sm" id="col-svg12">
+                    <svg
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      viewBox="0 0 100 50"
+                      onclick="addColumn(5)"
+                    >
+                      <path
+                        class="svg-hide"
+                        d="M15,0V50H0V0Z M32,0V50H17V0Z M49,0V50H34V0Z M66,0V50H51V0Z M83,0V50H68V0Z M100,0V50H85V0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="footer" style="margin-top: 20px;">
-        <p class="text-light-muted mb-0 py-2">© 2019 Bootstrapious All rights reserved.</p>
-        <a class="text-light-muted mb-0 py-2" href="https://github.com/StefanoB2018/FormEditor" target="_blank">Visit
-            GitHub
-            Repo</a>
-        <a class="text-light-muted mb-0 py-2" href="https://stefanob2018.github.io/FormEditor/index.html"
-            target="_blank">Visit
-            GitHub Page</a>
-
+    <div class="footer" style="margin-top: 20px">
+      <p class="text-light-muted mb-0 py-2">
+        © 2019 Bootstrapious All rights reserved.
+      </p>
+      <a
+        class="text-light-muted mb-0 py-2"
+        href="https://github.com/StefanoB2018/FormEditor"
+        target="_blank"
+        >Visit GitHub Repo</a
+      >
+      <a
+        class="text-light-muted mb-0 py-2"
+        href="https://stefanob2018.github.io/FormEditor/index.html"
+        target="_blank"
+        >Visit GitHub Page</a
+      >
     </div>
 
     <!-- End -->
-    <script src="https://kit.fontawesome.com/d494a59304.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/d494a59304.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js" defer></script>
-</body>
-
+  </body>
 </html>
