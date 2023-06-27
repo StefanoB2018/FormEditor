@@ -36,7 +36,7 @@ for (var i = 0; i < form_el.length; i++) {
       setTimeout(() => {
         toolel.style.display = "none";
         document.querySelector("#" + event.target.id).removeAttribute("style");
-      }, 8000);
+      }, 3000);
     },
     false
   );
